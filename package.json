@@ -60,11 +60,8 @@
     "tailwindcss": "3.4.3",
     "vite-plugin-pwa": "0.19.7"
   },
-  "resolutions": {
-    "astro/sharp": "0.33.1",
-    "astro-compress/sharp": "0.33.1"
-  },
   "dependencies": {
-    "astro-compressor": "0.4.1"
+    "astro-compressor": "0.4.1",
+    "sharp": "^0.33.5"
   }
 }

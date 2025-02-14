@@ -1,13 +1,13 @@
 {
   "site": {
-    "title": "EV0 ",
-    "base_url": "https://ev0.gndx.io",
+    "title": "Ulf FrostyPaw ",
+    "base_url": "https://ulffrostypaw.com",
     "base_path": "/",
-    "favicon": "/favicon.png",
-    "logoLight": "/logoLight.png",
-    "logoDark": "/logoDark.png",
-    "lang": "en",
-    "description": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript.",
+    "favicon": "/sticker.png",
+    "logoLight": "/sticker.png",
+    "logoDark": "/sticker.png",
+    "lang": "es",
+    "description": "Desarrollador backend especializado en NodeJS.",
     "pageSize": 6
   },
   "features": {
@@ -15,12 +15,12 @@
     "dark_mode": true
   },
   "metadata": {
-    "meta_author": "Oscar Barajas @gndx",
-    "meta_description": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript."
+    "meta_author": "Ulf FrostyPaw @ulffrostypaw",
+    "meta_description": "Blog y portafolio personal de Ulf Frostypaw."
   },
   "author": {
-    "name": "Oscar Barajas Tavares @gndx",
-    "avatar": "https://s3.amazonaws.com/gndx.dev/gndx-astro-avatar.png",
-    "bio": "EV0 is a free and open-source serverless blog template, built with Astro, Tailwind CSS, and TypeScript."
+    "name": "Quirino Emmanuel Mendes Ramos @ulffrostypaw",
+    "avatar": "/pache.png",
+    "bio": "Desarrollador backend especializado en NodeJS."
   }
 }

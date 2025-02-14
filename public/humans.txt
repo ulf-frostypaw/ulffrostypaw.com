@@ -1,8 +1,3 @@
-/* TEAM */
-	Chef: Oscar Barajas Tavares
-	Contact: oscar [at] gndx.dev
-	Twitter: @gndx
-	From: Medellín, Antioquia, Colombia.
 
 /* THANKS */
 	Template: EV0 Theme
