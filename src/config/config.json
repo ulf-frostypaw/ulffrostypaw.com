@@ -8,18 +8,18 @@
     "logoDark": "/sticker.png",
     "lang": "es",
     "description": "Desarrollador backend especializado en NodeJS.",
-    "pageSize": 6
+    "pageSize": 3
   },
   "features": {
     "youtube": true,
     "dark_mode": true
   },
   "metadata": {
-    "meta_author": "Ulf FrostyPaw @ulffrostypaw",
-    "meta_description": "Blog y portafolio personal de Ulf Frostypaw."
+    "meta_author": "Ulf FrostyPaw",
+    "meta_description": "Desarrollador backend especializado en NodeJS."
   },
   "author": {
-    "name": "Quirino Emmanuel Mendes Ramos @ulffrostypaw",
+    "name": "Ulf FrostyPaw",
     "avatar": "/pache.png",
     "bio": "Desarrollador backend especializado en NodeJS."
   }

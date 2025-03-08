@@ -2,9 +2,72 @@
 const year = new Date().getFullYear();
 ---
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+  .letter {
+      display: inline-block; /* Asegura que cada letra se comporte como un bloque en línea */
+  }
+  #schoolbell{
+    font-family: "Schoolbell", cursive !important;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .letter {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 2px;
+  }
+
+  .letter:nth-child(1) { color: #FF0000; } /* Rojo */
+.letter:nth-child(2) { color: #FF7F00; } /* Naranja */
+.letter:nth-child(3) { color: #FFFF00; } /* Amarillo */
+.letter:nth-child(4) { color: #00FF00; } /* Verde */
+.letter:nth-child(5) { color: #00FFFF; } /* Cian */
+.letter:nth-child(6) { color: #0000FF; } /* Azul */
+.letter:nth-child(7) { color: #4B0082; } /* Índigo */
+.letter:nth-child(8) { color: #9400D3; } /* Violeta */
+.letter:nth-child(9) { color: #FF0000; } /* Rojo */
+.letter:nth-child(10) { color: #FF7F00; } /* Naranja */
+.letter:nth-child(11) { color: #FFFF00; } /* Amarillo */
+.letter:nth-child(12) { color: #00FF00; } /* Verde */
+
+  .bullet {
+    color: #6b7280;
+  }
+  .bullet-dark {
+    color: #9ca3af;
+  }
+</style>
+
 <footer class="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
   <div class="border-t border-zinc-100 dark:border-zinc-900">
-    <p class="mb-8 mt-8 text-center text-xs/relaxed text-zinc-500 dark:text-zinc-400">
+    <ul class="flex justify-center space-x-4 mt-4 mb-8 list-none">
+      <li class="flex items-center">
+        <a href="/tags" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300">Tags</a>
+      </li>
+      <li class="flex items-center">
+        <span class="bullet dark:bullet-dark mr-2">•</span>
+        <a href="/categories" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300">Categor&iacute;as</a>
+      </li>
+      <li class="flex items-center">
+        <span class="bullet dark:bullet-dark mr-2">•</span>
+        <a href="#" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300" id="schoolbell">
+          <span class="letter">L</span>
+          <span class="letter">i</span>
+          <span class="letter">t</span>
+          <span class="letter">t</span>
+          <span class="letter">l</span>
+          <span class="letter">e</span>
+          <span class="letter"> </span>
+          <span class="letter">S</span>
+          <span class="letter">p</span>
+          <span class="letter">a</span>
+          <span class="letter">c</span>
+          <span class="letter">e</span>
+        </a>
+      </li>
+    </ul>
+    <p class="mb-8 text-center text-xs/relaxed text-zinc-500 dark:text-zinc-400">
       Ulf FrostyPaw &copy; {year} - Todos los derechos reservados
     </p>
   </div>

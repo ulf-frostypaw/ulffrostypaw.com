@@ -1,20 +1,16 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
-    },
-    {
-      "name": "¿Quién soy?",
+      "name": "Acerca de",
       "url": "/about"
     },
     {
-      "name": "Tags",
-      "url": "/tags"
+      "name": "Blog",
+      "url": "/blog"
     },
     {
-      "name": "Categorías",
-      "url": "/categories"
+      "name": "Proyectos",
+      "url": "/tags"
     }
   ]
 }
