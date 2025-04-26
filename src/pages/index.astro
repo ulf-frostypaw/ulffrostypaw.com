@@ -1,13 +1,28 @@
 ---
-import { getCollection } from 'astro:content';
-import HomePagination from '@components/HomePagination.astro';
-import Base from '@layouts/Base.astro';
-import Posts from '@layouts/Posts.astro';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from 'astro:assets';
+import config from '@config/config.json';
+import social from '@config/social';
 
-const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const socialItems = social.networks;
 ---
 
-<Base>
-  <Posts posts={posts} />
-  <HomePagination />
-</Base>
+<BaseLayout>
+    <div class="flex flex-col items-center justify-center w-full max-w-2xl mx-auto text-center
+            h-[60vh] sm:h-[70vh] lg:h-[80vh] xl:h-[60vh] min-h-screen sm:min-h-0">
+        <img src="https://ulffrostypaw.com/pache.png" alt="Imagen de Ulf FrostyPaw" class="w-28 h-28 mx-auto mb-4 rounded-full">
+        <h1 class="text-3xl font-bold">Ulf FrostyPaw</h1>
+        <hr class="my-6 border-gray-300 w-full">
+        <div class="flex justify-center space-x-6">
+            {
+                socialItems?.map((item) => (
+                    <a href={item.url} target="_blank" rel="noopener noreferrer">
+                        <figure>
+                            <Fragment set:html={item.svg} />
+                        </figure>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</BaseLayout>

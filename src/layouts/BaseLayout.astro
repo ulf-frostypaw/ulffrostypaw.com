@@ -1,0 +1,30 @@
+---
+import Footer from "@components/Footer.astro";
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta name="theme-name" content="bookworm-light-astro" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+        <meta name="generator" content={Astro.generator} />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- responsive meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+        <title>Ulf FrostyPaw</title>
+        <ViewTransitions />
+    </head>
+    <body>
+        <main class="flex items-center justify-center bg-gray-100 px-4" style="min-height: 100dvh;">
+        <slot />
+        </main>
+        <Footer />
+        <script>
+        // This is a hack to get vite-plugin-pwa to generate a sw.js file.
+        // Do not remove this script tag.
+        </script>
+    </body>
+</html>
