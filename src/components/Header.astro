@@ -4,7 +4,6 @@ import LinkButton from "./common/LinkButton.astro";
 import LinkedIn from "./icons/LinkedIn.astro";
 import GitHub from "./icons/GitHub.astro";
 import Email from "./icons/Email.astro";
-import Phone from "./icons/Phone.astro";
 import Globe from "./icons/Globe.astro";
 
 import {Image} from 'astro:assets'
@@ -38,9 +37,6 @@ const {name, about, personalWebsiteUrl, contact, location, locationLink} = CV_DA
             <LinkButton href={`mailto:${contact.email}`} ariaLabel="Email">
                 <Email class="size-4"/>
             </LinkButton>
-            <LinkButton href={`tel:${contact.tel}`} ariaLabel="Phone">
-                <Phone class="size-4"/>
-            </LinkButton>
             <LinkButton href={contact.social[0].url} ariaLabel={contact.social[0].name}>
                 <GitHub class="size-4"/>
             </LinkButton>
@@ -57,9 +53,6 @@ const {name, about, personalWebsiteUrl, contact, location, locationLink} = CV_DA
                 {contact.email}
             </a>
             <span aria-hidden="true">|</span>
-            <a class="underline hover:text-foreground/70" href={`tel:${contact.tel}`}>
-                {contact.tel}
-            </a>
             <a class="underline hover:text-foreground/70" href={contact.social[0].url}>
                 {contact.social[0].url}
             </a>

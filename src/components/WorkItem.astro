@@ -6,24 +6,31 @@ interface Props extends Work {
 }
 
 const {company, link, title, start, end, description, achievements, badges} = Astro.props
+const period = start ? `${start} - ${end ?? 'Present'}` : null;
 ---
 <article role="article">
     <div class="rounded-lg bg-card text-card-foreground py-1 print:py-0">
         <div class="flex flex-col space-y-1.5 print:space-y-1">
             <div class="flex items-center justify-between gap-x-2 text-base">
                 <h3 class="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
-                    <a class="hover:underline"
-                       href={link}
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label={`${company} company link`}>
-                        {company}
-                    </a>
+                    {link ? (
+                        <a class="hover:underline"
+                           href={link}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label={`${company} company link`}>
+                            {company}
+                        </a>
+                    ) : (
+                        <span>{company}</span>
+                    )}
                 </h3>
-                <div class="text-sm tabular-nums text-gray-500"
-                     aria-label=`Employment period: ${start} to ${end ?? 'Present'}`>
-                    {start} - {end ?? 'Present'}
-                </div>
+                {period && (
+                    <div class="text-sm tabular-nums text-gray-500"
+                         aria-label={`Employment period: ${period}`}>
+                        {period}
+                    </div>
+                )}
             </div>
             <h4 class="font-mono text-sm font-semibold leading-none flex flex-col space-y-1.5 print:text-[12px]">
                 {title}
