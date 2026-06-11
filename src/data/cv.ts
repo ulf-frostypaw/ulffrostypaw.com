@@ -60,19 +60,16 @@ Emprendedor en servicios de redes, instalación de cámaras, venta y provisión 
         {
             company: "Parroquia San Pedro Apóstol A.R.",
             link: "https://padrejesusdepetatlan.org",
-            title: "Java Software Engineer",
+            title: "Software Mantenance Engineer",
             start: "Mayo 2025",
             end: "actualidad",
-            description: "Develop and maintain backend microservices for a high-performance, multi-asset trading platform.",
+            description: "Desarrollo y mantenimiento de software de legado para la gestión de registros historicos de la parroquia, incluyendo migración a tecnologías modernas y optimización de procesos internos.",
             achievements: [
-                "Engineer scalable microservices with Java 21 and Spring Boot for user management, trade execution, and onboarding.",
-                "Implement an event-driven architecture with Kafka for reliable, real-time data processing between services.",
-                "Develop secure RESTful APIs using the OpenAPI standard for frontend and internal system integration.",
-                "Manage PostgreSQL schema evolution and data integrity using Liquibase for database migrations.",
-                "Monitor system performance and health using Grafana and OpenSearch to ensure high availability."
+                "Implementacion de bases de datos modernas para mejorar la eficiencia en la gestión de registros.",
+                "Migración exitosa de sistemas heredados a tecnologías actuales, mejorando la estabilidad y rendimiento del software.",
+                "Mejoras significativas en la interfaz de usuario, facilitando el acceso a la información para el personal de la parroquia."
             ],
-            badges: ["Java 21", "Spring Boot", "Kafka", "Redis", "PostgreSQL", "Liquibase", "JUnit", "Mockito", "Testcontainers", "AWS",
-                "Docker", "REST", "OpenAPI", "Grafana", "OpenSearch", "k6"],
+            badges: ["PHP", "CSS", "HTML", "MySQL", "React", "JavaScript"],
         }
     ],
     education: [
@@ -84,7 +81,13 @@ Emprendedor en servicios de redes, instalación de cámaras, venta y provisión 
         },
     ],
     skills: [
-        "Java (8, 11, 21)", "Spring Boot", "Hibernate", "Kafka", "Maven", "AWS", "Angular", "SQL", "PostreSQL", "Docker",
-        "JUnit", "Mockito", "REST"
+        "Desarrollo Backend",
+        "Linux",
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "React",
+        "Docker"
+        
     ],
 };
