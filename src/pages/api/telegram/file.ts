@@ -25,6 +25,14 @@ function getContentType(filePath: string, upstreamType: string | null): string {
         return "application/x-tgsticker";
     }
 
+    if (filePath.endsWith(".jpg") || filePath.endsWith(".jpeg")) {
+        return "image/jpeg";
+    }
+
+    if (filePath.endsWith(".png")) {
+        return "image/png";
+    }
+
     return "application/octet-stream";
 }
 
