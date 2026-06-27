@@ -1,0 +1,282 @@
+---
+export const prerender = false;
+
+import { CV_DATA } from "../data/cv";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const { name, about } = CV_DATA;
+const BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_API_BASE = "https://api.telegram.org";
+
+interface TelegramChat {
+    id: number;
+    title?: string;
+    username?: string;
+    first_name?: string;
+    last_name?: string;
+}
+
+interface TelegramSticker {
+    file_id: string;
+    emoji?: string;
+    is_animated?: boolean;
+    is_video?: boolean;
+}
+
+interface TelegramMessage {
+    date?: number;
+    text?: string;
+    caption?: string;
+    chat?: TelegramChat;
+    sticker?: TelegramSticker;
+}
+
+interface TelegramUpdate {
+    update_id: number;
+    message?: TelegramMessage;
+    edited_message?: TelegramMessage;
+    channel_post?: TelegramMessage;
+    edited_channel_post?: TelegramMessage;
+}
+
+interface StickerAsset {
+    url: string;
+    format: "webp" | "webm" | "tgs";
+    emoji: string | null;
+}
+
+function getChatName(chat?: TelegramChat): string {
+    const fullName = [chat?.first_name, chat?.last_name]
+        .filter(Boolean)
+        .join(" ");
+
+    return chat?.title ?? chat?.username ?? (fullName || "Chat sin nombre");
+}
+
+function getStickerAsset(sticker?: TelegramSticker): StickerAsset | null {
+    if (!sticker?.file_id) {
+        return null;
+    }
+
+    const format: StickerAsset["format"] = sticker.is_video
+        ? "webm"
+        : sticker.is_animated
+          ? "tgs"
+          : "webp";
+
+    return {
+        url: `/api/telegram/sticker?file_id=${encodeURIComponent(sticker.file_id)}`,
+        format,
+        emoji: sticker.emoji ?? null,
+    };
+}
+
+let updates: TelegramUpdate[] = [];
+
+if (BOT_TOKEN) {
+    const response = await fetch(
+        `${TELEGRAM_API_BASE}/bot${BOT_TOKEN}/getUpdates`,
+    );
+    const data = await response.json();
+    updates = Array.isArray(data.result) ? data.result : [];
+}
+
+const messages = updates
+    .flatMap((update) =>
+        [
+            update.message,
+            update.edited_message,
+            update.channel_post,
+            update.edited_channel_post,
+        ]
+            .filter((payload): payload is TelegramMessage => Boolean(payload))
+            .map((payload) => {
+                const date = payload.date
+                    ? new Date(payload.date * 1000)
+                    : null;
+                const chatName = getChatName(payload.chat);
+                const sticker =
+                    !payload.text && !payload.caption
+                        ? getStickerAsset(payload.sticker)
+                        : null;
+
+                return {
+                    updateId: update.update_id,
+                    date,
+                    chatName,
+                    content:
+                        payload.text ??
+                        payload.caption ??
+                        (sticker ? "Sticker" : "Sin texto"),
+                    sticker,
+                    timeLabel: date
+                        ? date.toLocaleTimeString("es-MX", {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                          })
+                        : "Sin hora",
+                    dateLabel: date
+                        ? date.toLocaleDateString("es-MX", {
+                              day: "2-digit",
+                              month: "short",
+                              year: "numeric",
+                          })
+                        : "Sin fecha",
+                    avatarLabel: chatName.trim().charAt(0).toUpperCase() || "T",
+                };
+            }),
+    )
+    .sort((a, b) => {
+        const aTime = a.date ? a.date.getTime() : 0;
+        const bTime = b.date ? b.date.getTime() : 0;
+        return aTime - bTime;
+    });
+
+const currentChatName = messages[0]?.chatName ?? "Mensajes recibidos";
+---
+
+<Layout title={`${name}`} description={about}>
+    <main
+        class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
+        id="main-content"
+    >
+        <section
+            class="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
+            aria-label="CV Content"
+        >
+            <Header />
+
+            <div
+                class="overflow-hidden rounded-4xl border border-neutral-200 bg-neutral-100 shadow-xl"
+            >
+                <div
+                    class="border-b border-neutral-200 bg-white/90 px-5 py-4 backdrop-blur"
+                >
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-full bg-sky-100 text-sm font-semibold text-sky-700"
+                        >
+                            {
+                                currentChatName
+                                    .trim()
+                                    .charAt(0)
+                                    .toUpperCase() || "T"
+                            }
+                        </div>
+                        <div class="min-w-0">
+                            <h1
+                                class="truncate text-base font-semibold text-neutral-900 md:text-lg"
+                            >
+                                {currentChatName}
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-[linear-gradient(180deg,#f8fafc_0%,#eef6ff_100%)] p-4 md:p-6"
+                >
+                    {
+                        (
+                            <ul class="space-y-4">
+                                {messages.map((message, index) => {
+                                    const previousDate =
+                                        index > 0
+                                            ? messages[index - 1]?.dateLabel
+                                            : null;
+                                    const showDateSeparator =
+                                        previousDate !== message.dateLabel;
+
+                                    return (
+                                        <>
+                                            {showDateSeparator && (
+                                                <li class="flex justify-center py-2">
+                                                    <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-neutral-500 shadow-sm ring-1 ring-neutral-200">
+                                                        {message.dateLabel}
+                                                    </span>
+                                                </li>
+                                            )}
+
+                                            <li class="flex items-end gap-3">
+                                                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-200 text-xs font-semibold text-sky-800 shadow-sm">
+                                                    {message.avatarLabel}
+                                                </div>
+
+                                                <div class="max-w-[85%] md:max-w-[75%]">
+                                                    <div class="rounded-3xl rounded-bl-md bg-white px-4 py-3 text-sm text-neutral-800 shadow-sm ring-1 ring-neutral-200">
+                                                        {message.sticker ? (
+                                                            <div class="space-y-3">
+                                                                {message.sticker
+                                                                    .format ===
+                                                                    "webp" && (
+                                                                    <img
+                                                                        src={
+                                                                            message
+                                                                                .sticker
+                                                                                .url
+                                                                        }
+                                                                        alt={`Sticker ${message.sticker.emoji ?? "de Telegram"}`}
+                                                                        class="max-h-64 w-auto rounded-2xl bg-sky-50 object-contain p-2"
+                                                                        loading="lazy"
+                                                                    />
+                                                                )}
+
+                                                                {message.sticker
+                                                                    .format ===
+                                                                    "webm" && (
+                                                                    <video
+                                                                        src={
+                                                                            message
+                                                                                .sticker
+                                                                                .url
+                                                                        }
+                                                                        class="max-h-64 w-auto rounded-2xl bg-sky-50"
+                                                                        autoplay
+                                                                        muted
+                                                                        loop
+                                                                        playsinline
+                                                                    />
+                                                                )}
+
+                                                                {message.sticker
+                                                                    .format ===
+                                                                    "tgs" && (
+                                                                    <div class="rounded-2xl bg-sky-50 p-4 text-sm text-sky-800 ring-1 ring-sky-100">
+                                                                        Sticker
+                                                                        animado
+                                                                        (.tgs)
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        ) : (
+                                                            <p class="whitespace-pre-wrap wrap-break-word leading-relaxed">
+                                                                {
+                                                                    message.content
+                                                                }
+                                                            </p>
+                                                        )}
+
+                                                        <div class="mt-3 flex items-center justify-end gap-2 text-[11px] text-neutral-400">
+                                                            <span
+                                                                title={`${message.dateLabel} - ${message.timeLabel}`}
+                                                            >
+                                                                {
+                                                                    message.timeLabel
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </>
+                                    );
+                                })}
+                            </ul>
+                        )
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
