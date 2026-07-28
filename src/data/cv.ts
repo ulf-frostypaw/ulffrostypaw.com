@@ -43,7 +43,7 @@ export interface Education {
 export const CV_DATA: CV = {
     name: "Ulf FrostyPaw",
     title: "Software Engineer",
-    location: "Acapulco, Mexico",
+    location: "Acapulco, Guerrero, Mexico",
     locationLink: "https://www.google.com/maps/place/Acapulco",
     about: "Desarrollador de software especializado en backend y soluciones para PyMEs.",
     summary: `Desarrollador principal y líder de proyectos digitales, especializado en backend, servidores Linux y soluciones para PyMEs.
@@ -57,6 +57,20 @@ Emprendedor en servicios de redes, instalación de cámaras, venta y provisión 
         ],
     },
     work: [
+        {
+            company: "Semanario Mar Adentro",
+            link: "https://maradentroaca.org",
+            title: "Website developer",
+            start: "Junio 2026",
+            end: "Septiembre 2026",
+            description: "Planificación, gestión y desarrollo del sitio web completo; tanto como los plugins y plantillas de personalizadas de WordPress.",
+            achievements: [
+                "Implementacion de bases de datos modernas para mejorar la eficiencia en la gestión de registros.",
+                "Migración exitosa de sistemas heredados a tecnologías actuales, mejorando la estabilidad y rendimiento del software.",
+                "Mejoras significativas en la interfaz de usuario, facilitando el acceso a la información para el personal de la parroquia."
+            ],
+            badges: ["WordPress", "PHP", "CSS", "HTML", "JavaScript"],
+        },
         {
             company: "Parroquia San Pedro Apóstol A.R.",
             link: "https://padrejesusdepetatlan.org",
@@ -87,6 +101,8 @@ Emprendedor en servicios de redes, instalación de cámaras, venta y provisión 
         "MySQL",
         "JavaScript",
         "React",
+        "Bun",
+        "NodeJS",
         "Docker"
         
     ],
