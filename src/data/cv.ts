@@ -46,7 +46,7 @@ export const CV_DATA: CV = {
     location: "Acapulco, Guerrero, Mexico",
     locationLink: "https://www.google.com/maps/place/Acapulco",
     about: "Desarrollador backend - PHP, JS/TS, Python.",
-    summary: `Desarrollador backend especializado en PHP, JS/TS, Python y a veces Node.JS; manejo de redes y servidor Linux para despliegue de proyectos web.`,
+    summary: `Desarrollador backend especializado en PHP, JS/TS, Python y a veces Node.JS; manejo de redes y servidores Linux para despliegue de proyectos web.`,
     personalWebsiteUrl: "https://ulffrostypaw.com",
     contact: {
         email: "contacto@ulffrostypaw.com",
@@ -55,7 +55,21 @@ export const CV_DATA: CV = {
             {name: "LinkedIn", url: "https://www.linkedin.com/in/sergalote/"},
         ],
     },
-    work: [
+  work: [
+        {
+            company: "Furmap",
+            link: "",
+            title: "Site developer",
+            start: "indefinido",
+            end: "indefinido",
+            description: "Proyecto personal: un mapa para la comunidad furry cuyo objetivo es ayudar a encontrar personas, lugares y eventos con los mismos intereses. Inspirado en una antigua versión de Furrymap.net y BARQ!",
+            achievements: [
+                "Diseño de una API completa preparada para un flujo alto y concurrente de usuarios.",
+                "Diseño de la interfaz optimizada para un enfoque mobile-first.",
+                "Implementación de un sistema de registro de usuarios, perfiles verificados, grupos, registro de eventos y un mapa de calor para lugares con alta concurrencia de usuarios registrados."
+            ],
+            badges: ["Bun","React", "Docker", "PHP", "Microservicios", "GraphQL", "SQL"],
+        },
         {
             company: "Semanario Mar Adentro",
             link: "https://maradentroaca.org",
