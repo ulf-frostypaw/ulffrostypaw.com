@@ -57,13 +57,13 @@ export const CV_DATA: CV = {
   },
   work: [
     {
-      company: "Parroquia San Pedro Apóstol",
+      company: "SAE (Sistema Administrativo Eclesiástico)",
       link: "",
       title: "full-stack developer",
       start: "indefinido",
       end: "indefinido",
       description:
-        "SAE (Sistema Administrativo Eclesiástico): plataforma web que digitaliza la gestión administrativa de una parroquia. Resuelve el problema del papeleo manual de intenciones de misa, libros sacramentales y calendarios, centralizando todo en un solo sistema accesible desde cualquier dispositivo.",
+        "Plataforma web que digitaliza la gestión administrativa de una parroquia. Resuelve el problema del papeleo manual de intenciones de misa, libros sacramentales y calendarios, centralizando todo en un solo sistema accesible desde cualquier dispositivo.",
       achievements: [
         "Diseño de una API REST en PHP (Flight) con autenticación por sesiones, registros de usuarios, manejo de peticiones y respuestas en formato JSON.",
         "Implementación de gestión de intenciones de misas con filtros por fecha y horario, búsqueda y paginación.",
