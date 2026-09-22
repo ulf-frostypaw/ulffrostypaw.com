@@ -101,13 +101,21 @@ export const CV_DATA: CV = {
     education: [
         {
             school: "Universidad Tecnologica de la Costa Grande de Guerrero",
-            degree: "TSU en Gestión y Mantenimiento de Software, área Multiplataforma",
-            start: "2023",
-            end: "actualidad",
-        },
+            degree: "TÉCNICO SUPERIOR UNIVERSITARIO EN TECNOLOGÍAS DE LA INFORMACIÓN ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA",
+            start: "Sept 2023",
+            end: "Ago 2025",
+      },
+      {
+          school: "Universidad Tecnologica de la Costa Grande de Guerrero",
+          degree: "INGENIERIA EN DESARROLLO Y GESTIÓN DE SOFTWARE.",
+          start: "Sept 2025",
+          end: "actualidad",
+      },
     ],
     skills: [
-        "Desarrollo Backend",
+      "Desarrollo Backend",
+      "Frontend",
+      "Fullstack",
         "Linux",
         "PHP",
         "MySQL",
