@@ -46,7 +46,7 @@ export const CV_DATA: CV = {
   location: "Acapulco, Guerrero, Mexico",
   locationLink: "https://www.google.com/maps/place/Acapulco",
   about: "Desarrollador backend - PHP, JS/TS, Python.",
-  summary: `Desarrollador backend especializado en PHP, JS/TS, Python y a veces Node.JS; manejo de redes y servidores Linux para despliegue de proyectos web.`,
+  summary: `Desarrollador backend especializado en PHP, JS/TS y Python, con experiencia en despliegues Linux y proyectos comunitarios. Abierto a ampliar mi conocimiento en nuevas herramientas y tecnologías que representen un reto profesional. Disponible para reubicación en caso de ser necesario.`,
   personalWebsiteUrl: "https://ulffrostypaw.com",
   contact: {
     email: "contacto@ulffrostypaw.com",
